@@ -23,17 +23,21 @@ const Container = (props)=>{
             <h1 className="text-center">Employee List</h1>
             <h3 className="text-center">Employees <span>{count-4}</span> to <span>{count}</span></h3>
             <div className="cards mt-5">
-                {data.map((item,index)=>{
+                
+                {data.map((item,index)=> {
+                    const { id, name, age, image, email } = item;
+
                     if(index>=(count-5) && index<count){
-                        const {id, name , age , image , email} = item;
+                        
                     return(
                         <Card key={id} name={name} age={age} image={image} email={email} />
                         )
                     }
+
                     
-                })}
-                
+                })}                
             </div>
+
             <div className="btns text-center p-3">
                   <button  onClick={dec} className="btn btn-info mx-3 p-2 text-white fs-3">Prev</button>
                   <button onClick={inc} className="btn btn-info p-2 fs-3 text-white">Next</button>
